@@ -1,6 +1,23 @@
-## Subject
+#include <unistd.h>
 
-```
+int main (int argc, char **argv)
+{
+	int i = 0; //index
+	
+	if (argc == 2) //second arg 
+	{
+		while (argv[1][i] == ' ' || argv[1][i] == '	') //ignores spaces and tabs
+			i++;
+		while ((argv[1][i] != 32 && argv[1][i] != 9) && argv[1][i]) //write the word and stops in tabs and spaces
+		{
+			write(1, &argv[1][i], 1);
+			i++;
+		}
+	}
+	write(1, "\n", 1);
+}
+
+/*
 Assignment name  : first_word
 Expected files   : first_word.c
 Allowed functions: write
@@ -27,5 +44,4 @@ $> ./first_word "a" "b" | cat -e
 $
 $> ./first_word "  lorem,ipsum  " | cat -e
 lorem,ipsum$
-$>
-```
+$> */

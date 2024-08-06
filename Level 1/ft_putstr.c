@@ -1,6 +1,14 @@
-## Subject
+#include <unistd.h>
 
-```
+void	ft_putstr(char *str)
+{
+	int	i = 0;
+
+	while (str[i])
+		write(1, &str[i++], 1);
+}
+
+/*
 Assignment name  : ft_putstr
 Expected files   : ft_putstr.c
 Allowed functions: write
@@ -14,4 +22,4 @@ character.
 Your function must be declared as follows:
 
 void	ft_putstr(char *str);
-```
+*/
